@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Libre</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <!--Fila 1-->
+            <div class="logo">
+                <a href="#"><img src="./img/mercado-libre-logo.png" alt="Logo Mercado Libre"></a>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Buscar ...">
+            <button class="search-btn">&#128269;</button>
+        </div>
+
+        <div class="image-suscribirse">
+            <img src="./img/img-suscribirse.webp" alt="Suscrupción">
+        </div>
+
+        <!-- Fila 2-->
+         <div class="ubicación">
+            <img src="./img/ubicacion.png" alt="Ubicación">
+            <span>Enviar a<strong>Tu dirección</strong></span>
+         </div>
+
+         <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Cupones</a></li>
+                <li><a href="#">Supermercados</a></li>
+                <li><a href="#">Moda</a></li>
+                <li><a href="#">Mercado Play</a></li>
+            </ul>
+         </nav>
+
+         <div class="user-options">
+            <ul>
+                <li><a href="#">Vender</a></li>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Crea tu cuenta</a></li>
+                <li><a href="#">Ingresa</a></li>
+                <li><a href="#">Mis compras</a></li>
+            </ul>
+        </div>
+    </div>
+<!--Carrusel de imagenes -->
+<section class="slider">
+    <div class="slider-container">
+        <div class="carousel-item">
+            <img src="./img/imagen01.webp" alt="Imagen 1">
+        </div>
+        <div class="carousel-item">
+            <img src="./img/imagen02.webp" alt="Imagen 2">
+        </div>
+        <div class="carousel-item">
+            <img src="./img/imagen03.webp" alt="Imagen 3">
+        </div>
+    </div>
+
+    <!--Botones de navegación-->
+    <button class="prev" onclick="moverSlider(-1)">&#10094;</button>
+    <button class="next" onclick="moverSlider(1)">&#10095;</button>
+</section>
+
+
+    <script>
+        let index = 0;
+        function moverSlide(n) {
+            let slides = document.querySelectorAll('.carousel.item');
+            let sliderContainer = document.querySelector('.slider-container');
+
+            index += n;
+
+            //Asegurar que el índice no se salda del rango
+            if (index >= slides.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = slides.length - 1;
+           }
+
+           //Mover el slider
+            sliderContainer.style.transform = `translateX(-${index * 100}%)`;
+       }
+
+       //Avanzar automáticamente cada 5 segundos
+       setInterval(() => moverSlider(1), 5000);
+    </script>
+
+
+    </header>
+</body>
+</html>
